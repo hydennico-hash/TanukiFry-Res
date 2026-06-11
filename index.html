@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TanukiFry – Knusprig. Süß. Himmlisch.</title>
-  <meta name="description" content="TanukiFry – Piadina, Fries, Ramune & Kaffee to go. Frisch zubereitet, mit Liebe serviert.">
+  <title>TanukiFry – Long Fries, Piadina &amp; Drinks to go in Klagenfurt</title>
+  <meta name="description" content="TanukiFry Klagenfurt – Long Fries, Piadina, Ramune & Kaffee to go. Frisch zubereitet, schnell serviert und mit viel Liebe gemacht.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,6 +12,7 @@
     :root {
       --olive: #606942;
       --olive-soft: #7a8456;
+      --olive-deep: #4d6132;
       --ink: #282827;
       --ink-soft: #363532;
       --cream: #f1e0c6;
@@ -38,7 +39,7 @@
 
     h1, h2, h3, .font-display { font-family: 'Fredoka', sans-serif; }
 
-    img, svg { display: block; }
+    img, svg, iframe { display: block; }
 
     a { color: inherit; }
 
@@ -54,41 +55,35 @@
 
     /* ---------- Navigation ---------- */
     .nav {
-      position: fixed;
-      top: 1rem; left: 1rem; right: 1rem;
+      position: sticky;
+      top: 0;
       z-index: 50;
-      display: flex;
-      justify-content: center;
-      pointer-events: none;
+      background: var(--ink);
+      box-shadow: 0 4px 18px rgba(40, 40, 39, 0.35);
     }
     .nav-inner {
-      pointer-events: auto;
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0.6rem 1.25rem;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      background: rgba(247, 236, 218, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(96, 105, 66, 0.18);
-      border-radius: 999px;
-      padding: 0.5rem 0.75rem 0.5rem 1.25rem;
-      box-shadow: var(--shadow-soft);
-      transition: box-shadow 250ms ease-out;
-      max-width: 56rem;
-      width: 100%;
       justify-content: space-between;
+      gap: 1rem;
     }
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
       text-decoration: none;
+    }
+    .nav-brand svg { width: 3.4rem; height: 3.4rem; }
+    .nav-brand .word {
       font-family: 'Fredoka', sans-serif;
       font-weight: 600;
-      font-size: 1.25rem;
-      color: var(--ink);
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: var(--cream);
     }
-    .nav-brand svg { width: 2.1rem; height: 2.1rem; }
     .nav-links {
       display: flex;
       align-items: center;
@@ -97,21 +92,22 @@
     }
     .nav-links a {
       display: inline-block;
-      padding: 0.6rem 0.9rem;
+      padding: 0.65rem 0.9rem;
       border-radius: 999px;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--ink-soft);
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream);
       transition: background-color 200ms ease-out, color 200ms ease-out;
     }
-    .nav-links a:hover { background: rgba(96, 105, 66, 0.12); color: var(--olive); }
+    .nav-links a:hover { background: rgba(241, 224, 198, 0.14); }
     .nav-cta {
       background: var(--olive);
-      color: var(--cream) !important;
-      padding: 0.65rem 1.25rem !important;
+      margin-left: 0.4rem;
     }
-    .nav-cta:hover { background: var(--olive-soft) !important; color: #fff !important; }
+    .nav-cta:hover { background: var(--olive-soft) !important; }
 
     .nav-toggle {
       display: none;
@@ -125,25 +121,24 @@
       align-items: center;
       justify-content: center;
     }
-    .nav-toggle svg { width: 1.5rem; height: 1.5rem; stroke: var(--ink); }
+    .nav-toggle svg { width: 1.6rem; height: 1.6rem; stroke: var(--cream); }
 
-    @media (max-width: 760px) {
+    @media (max-width: 880px) {
       .nav-links {
         display: none;
         position: absolute;
-        top: calc(100% + 0.6rem);
+        top: 100%;
         left: 0; right: 0;
         flex-direction: column;
         align-items: stretch;
-        background: var(--paper);
-        border: 1px solid rgba(96, 105, 66, 0.18);
-        border-radius: var(--radius-md);
-        padding: 0.75rem;
-        box-shadow: var(--shadow-soft);
+        background: var(--ink);
+        padding: 0.75rem 1.25rem 1.25rem;
         gap: 0.25rem;
+        box-shadow: 0 14px 24px rgba(40, 40, 39, 0.35);
       }
       .nav-links.open { display: flex; }
-      .nav-links a { text-align: center; padding: 0.85rem 1rem; }
+      .nav-links a { text-align: center; padding: 0.9rem 1rem; }
+      .nav-cta { margin-left: 0; }
       .nav-toggle { display: flex; }
       .nav-inner { position: relative; }
     }
@@ -151,224 +146,213 @@
     /* ---------- Hero ---------- */
     .hero {
       position: relative;
-      padding: 9rem 0 5rem;
+      background: var(--cream);
+      padding: 4.5rem 0 0;
       overflow: hidden;
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 3rem;
       align-items: center;
+      padding-bottom: 3.5rem;
     }
     @media (max-width: 860px) {
-      .hero { padding-top: 7.5rem; }
+      .hero { padding-top: 3rem; }
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-copy { display: flex; flex-direction: column; align-items: center; }
     }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--tan);
-      color: var(--ink-soft);
-      border-radius: 999px;
-      padding: 0.45rem 1.1rem;
-      font-weight: 800;
-      font-size: 0.85rem;
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.75rem;
+    }
+    .hero h1 .t-olive { color: var(--olive); }
+    .hero h1 .t-ink { color: var(--ink); }
+
+    .hero .sub {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.1rem, 2.6vw, 1.5rem);
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .hero .sub-olive {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1rem, 2.3vw, 1.3rem);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--olive);
       margin-bottom: 1.5rem;
     }
-    .hero-badge svg { width: 1rem; height: 1rem; }
-
-    .hero h1 {
-      font-size: clamp(2.6rem, 6vw, 4.25rem);
-      font-weight: 600;
-      line-height: 1.08;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.25rem;
-    }
-    .hero h1 .accent { color: var(--olive); }
-
     .hero p.lead {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
+      font-weight: 600;
       color: var(--ink-soft);
-      max-width: 32rem;
-      margin-bottom: 2.25rem;
+      max-width: 26rem;
+      margin-bottom: 2rem;
     }
 
-    .btn-row { display: flex; flex-wrap: wrap; gap: 0.9rem; }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       font-family: 'Fredoka', sans-serif;
-      font-weight: 500;
-      font-size: 1.05rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       text-decoration: none;
       border-radius: 999px;
-      padding: 0.9rem 1.9rem;
+      padding: 0.85rem 1.8rem;
       min-height: 44px;
       cursor: pointer;
       border: 2px solid transparent;
-      transition: background-color 200ms ease-out, color 200ms ease-out, box-shadow 200ms ease-out, transform 200ms ease-out;
+      transition: background-color 200ms ease-out, color 200ms ease-out, box-shadow 200ms ease-out;
     }
-    .btn svg { width: 1.15rem; height: 1.15rem; }
     .btn-primary {
       background: var(--olive);
       color: var(--cream);
       box-shadow: 0 8px 22px -8px rgba(96, 105, 66, 0.55);
     }
-    .btn-primary:hover { background: var(--olive-soft); color: #fff; box-shadow: 0 12px 26px -8px rgba(96, 105, 66, 0.6); }
-    .btn-ghost {
-      border-color: rgba(96, 105, 66, 0.4);
-      color: var(--olive);
+    .btn-primary:hover { background: var(--olive-soft); color: #fff; }
+    .btn-outline-light {
+      border-color: var(--cream);
+      color: var(--cream);
       background: transparent;
     }
-    .btn-ghost:hover { background: rgba(96, 105, 66, 0.1); }
+    .btn-outline-light:hover { background: rgba(241, 224, 198, 0.16); }
 
     /* Hero illustration */
     .hero-art {
       position: relative;
       display: flex;
+      align-items: flex-end;
       justify-content: center;
+      gap: 0;
+      min-height: 18rem;
     }
-    .hero-blob {
-      width: min(26rem, 82vw);
-      aspect-ratio: 1;
-      background: var(--tan);
-      border-radius: 46% 54% 55% 45% / 48% 44% 56% 52%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 -18px 40px rgba(96, 105, 66, 0.12), var(--shadow-soft);
-    }
-    .hero-blob svg { width: 72%; height: auto; }
-
-    .cloud {
-      position: absolute;
-      fill: var(--paper);
-      filter: drop-shadow(0 6px 14px rgba(40, 40, 39, 0.08));
-      animation: floaty 7s ease-in-out infinite;
+    .hero-art svg { stroke: var(--olive); fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .art-fries {
+      width: min(19rem, 52vw);
+      stroke-width: 1.3;
+      animation: floaty 6s ease-in-out infinite;
       will-change: transform;
     }
-    .cloud-1 { width: 6.5rem; top: 4%; left: 2%; animation-delay: 0s; }
-    .cloud-2 { width: 4.5rem; bottom: 10%; right: 0; animation-delay: -2.5s; }
-    .cloud-3 { width: 3.5rem; top: 18%; right: 8%; animation-delay: -4.5s; }
-
+    .art-piadina {
+      width: min(10rem, 28vw);
+      stroke-width: 1.4;
+      margin-right: -2rem;
+      margin-bottom: 1.5rem;
+      animation: floaty 6s ease-in-out infinite;
+      animation-delay: -2s;
+      will-change: transform;
+    }
+    .art-ramune {
+      width: min(7rem, 20vw);
+      stroke-width: 1.4;
+      margin-left: -1.5rem;
+      margin-bottom: 1rem;
+      animation: floaty 6s ease-in-out infinite;
+      animation-delay: -4s;
+      will-change: transform;
+    }
     .sparkle {
       position: absolute;
-      width: 1.4rem;
-      fill: var(--olive);
-      opacity: 0.7;
+      width: 1.3rem;
+      fill: var(--olive) !important;
+      stroke: none !important;
+      opacity: 0.65;
       animation: twinkle 3.4s ease-in-out infinite;
       will-change: transform, opacity;
     }
-    .sparkle-1 { top: 8%; right: 22%; animation-delay: 0s; }
-    .sparkle-2 { bottom: 16%; left: 8%; animation-delay: -1.2s; width: 1rem; }
-    .sparkle-3 { top: 40%; left: -2%; animation-delay: -2.2s; width: 1.1rem; }
-
-    .mascot-bob { animation: floaty 5.5s ease-in-out infinite; will-change: transform; }
+    .sparkle-1 { top: 4%; right: 14%; }
+    .sparkle-2 { top: 22%; left: 6%; animation-delay: -1.2s; width: 1rem; }
+    .sparkle-3 { bottom: 12%; right: 2%; animation-delay: -2.2s; width: 1.05rem; }
 
     @keyframes floaty {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+      50% { transform: translateY(-10px); }
     }
     @keyframes twinkle {
-      0%, 100% { opacity: 0.25; transform: scale(0.8); }
-      50% { opacity: 0.85; transform: scale(1.1); }
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 0.8; transform: scale(1.1); }
     }
 
-    /* ---------- Ticker ---------- */
-    .ticker {
-      background: var(--olive);
-      color: var(--cream);
-      overflow: hidden;
-      padding: 0.9rem 0;
-    }
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      gap: 3rem;
-      animation: ticker 28s linear infinite;
-      will-change: transform;
-    }
-    .ticker-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-family: 'Fredoka', sans-serif;
-      font-weight: 500;
-      font-size: 1rem;
-      white-space: nowrap;
-      letter-spacing: 0.03em;
-    }
-    .ticker-item svg {
-      width: 1rem; height: 1rem;
-      fill: none;
-      stroke: var(--tan);
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+    /* Seigaiha wave band */
+    .waves {
+      height: 76px;
+      background-color: var(--cream);
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='48' viewBox='0 0 88 48'%3E%3Cg fill='%23f1e0c6' stroke='%23d2b58e' stroke-width='3'%3E%3Ccircle cx='44' cy='50' r='42'/%3E%3Ccircle cx='44' cy='50' r='28'/%3E%3Ccircle cx='44' cy='50' r='14'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='48' viewBox='0 0 88 48'%3E%3Cg fill='%23f1e0c6' stroke='%23d2b58e' stroke-width='3'%3E%3Ccircle cx='44' cy='50' r='42'/%3E%3Ccircle cx='44' cy='50' r='28'/%3E%3Ccircle cx='44' cy='50' r='14'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat-x, repeat-x;
+      background-size: 88px 48px, 88px 48px;
+      background-position: 0 100%, 44px calc(100% - 26px);
     }
 
     /* ---------- Sections ---------- */
     section { padding: 5.5rem 0; }
-    .section-head { text-align: center; max-width: 38rem; margin: 0 auto 3.5rem; }
-    .section-eyebrow {
-      display: inline-block;
-      font-weight: 800;
-      font-size: 0.85rem;
-      letter-spacing: 0.12em;
+    .section-head { text-align: center; max-width: 40rem; margin: 0 auto 3.5rem; }
+    .section-head h2 {
+      font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+    }
+    .section-head p { color: var(--ink-soft); font-size: 1.1rem; font-weight: 600; }
+
+    /* ---------- Angebot ---------- */
+    .angebot { background: var(--paper); }
+    .angebot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+      gap: 2.5rem 2rem;
+      max-width: 66rem;
+      margin: 0 auto;
+    }
+    .angebot-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+    }
+    .angebot-item .icon {
+      flex-shrink: 0;
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+    .angebot-item .icon svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: var(--olive);
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .angebot-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--olive);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.35rem;
     }
-    .section-head h2 {
-      font-size: clamp(2rem, 4.5vw, 2.9rem);
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 1rem;
+    .angebot-item p { font-size: 1rem; font-weight: 600; color: var(--ink-soft); }
+    @media (max-width: 640px) {
+      .angebot-grid { grid-template-columns: 1fr; max-width: 22rem; }
     }
-    .section-head p { color: var(--ink-soft); font-size: 1.1rem; }
-
-    /* ---------- Features ---------- */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    @media (max-width: 860px) { .features { grid-template-columns: 1fr; } }
-    .feature-card {
-      background: var(--paper);
-      border: 1px solid rgba(96, 105, 66, 0.14);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem 2rem;
-      text-align: center;
-      box-shadow: var(--shadow-soft);
-      transition: box-shadow 250ms ease-out, transform 250ms ease-out;
-    }
-    .feature-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
-    .feature-icon {
-      width: 4rem; height: 4rem;
-      margin: 0 auto 1.25rem;
-      background: var(--tan);
-      border-radius: 38% 62% 55% 45% / 50% 45% 55% 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .feature-icon svg { width: 1.9rem; height: 1.9rem; stroke: var(--olive); }
-    .feature-card h3 { font-size: 1.35rem; font-weight: 600; margin-bottom: 0.6rem; }
-    .feature-card p { color: var(--ink-soft); font-size: 1rem; }
 
     /* ---------- Menu ---------- */
-    .menu-section { background: var(--tan); border-radius: 3rem 3rem 0 0; }
+    .menu-section { background: var(--tan); }
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -392,16 +376,21 @@
       border-bottom: 2px dashed rgba(96, 105, 66, 0.25);
     }
     .menu-card-head .icon {
-      width: 3rem; height: 3rem;
+      width: 3.2rem; height: 3.2rem;
       flex-shrink: 0;
-      background: var(--tan);
-      border-radius: 50% 45% 55% 50% / 50% 50% 50% 50%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .menu-card-head .icon svg { width: 1.7rem; height: 1.7rem; stroke: var(--olive); }
-    .menu-card-head h3 { font-size: 1.4rem; font-weight: 600; }
+    .menu-card-head .icon svg {
+      width: 2.6rem; height: 2.6rem;
+      fill: none;
+      stroke: var(--olive);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .menu-card-head h3 { font-size: 1.35rem; font-weight: 600; }
     .menu-card-head .sub { font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; }
 
     .menu-list { list-style: none; }
@@ -425,7 +414,6 @@
       color: var(--olive);
       white-space: nowrap;
     }
-
     .menu-note {
       text-align: center;
       margin-top: 2.5rem;
@@ -442,13 +430,9 @@
       align-items: center;
     }
     @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
-    .about-art {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
+    .about-art { display: flex; justify-content: center; }
     .about-blob {
-      width: min(20rem, 75vw);
+      width: min(19rem, 75vw);
       aspect-ratio: 1;
       background: var(--tan);
       border-radius: 55% 45% 48% 52% / 46% 55% 45% 54%;
@@ -459,12 +443,14 @@
     }
     .about-blob svg { width: 65%; height: auto; }
     .about-copy h2 {
-      font-size: clamp(1.9rem, 4vw, 2.6rem);
-      font-weight: 600;
-      line-height: 1.15;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.18;
       margin-bottom: 1.25rem;
     }
-    .about-copy p { color: var(--ink-soft); margin-bottom: 1.1rem; }
+    .about-copy p { color: var(--ink-soft); font-weight: 600; margin-bottom: 1.1rem; }
     .about-quote {
       margin-top: 1.75rem;
       background: var(--paper);
@@ -477,64 +463,134 @@
       color: var(--olive);
     }
 
-    /* ---------- Contact ---------- */
-    .contact-section { background: var(--ink); color: var(--cream); border-radius: 3rem 3rem 0 0; }
-    .contact-section .section-eyebrow { color: var(--tan); }
-    .contact-section .section-head p { color: rgba(241, 224, 198, 0.75); }
-    .contact-grid {
+    /* ---------- Location ---------- */
+    .location {
+      position: relative;
+      background: var(--olive);
+      color: var(--cream);
+      overflow: hidden;
+    }
+    .location h2 {
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .location-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 3rem;
+      align-items: start;
     }
-    @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
-    .contact-card {
-      background: var(--ink-soft);
-      border: 1px solid rgba(241, 224, 198, 0.12);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      text-align: center;
-    }
-    .contact-card .icon {
-      width: 3.25rem; height: 3.25rem;
-      margin: 0 auto 1.1rem;
-      background: rgba(96, 105, 66, 0.45);
-      border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;
+    @media (max-width: 860px) { .location-grid { grid-template-columns: 1fr; } }
+
+    .addr-list { list-style: none; margin-bottom: 1.75rem; }
+    .addr-list li {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 0.7rem;
+      padding: 0.3rem 0;
+      font-weight: 700;
     }
-    .contact-card .icon svg { width: 1.5rem; height: 1.5rem; stroke: var(--tan); }
-    .contact-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.6rem; }
-    .contact-card p { color: rgba(241, 224, 198, 0.78); font-size: 1rem; }
-    .contact-card a { color: var(--tan); font-weight: 700; text-decoration: none; }
-    .contact-card a:hover { text-decoration: underline; }
+    .addr-list svg {
+      width: 1.15rem; height: 1.15rem;
+      flex-shrink: 0;
+      fill: none;
+      stroke: var(--tan);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .map-frame {
+      border: 0;
+      width: 100%;
+      height: 17rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 30px -10px rgba(40, 40, 39, 0.4);
+      background: var(--paper);
+    }
+
+    .hours { margin-top: 2.5rem; }
+    .hours h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .hours table { border-collapse: collapse; width: 100%; max-width: 24rem; }
+    .hours td {
+      padding: 0.35rem 0;
+      font-weight: 700;
+      vertical-align: top;
+    }
+    .hours td + td { text-align: right; color: rgba(241, 224, 198, 0.92); }
+
+    .peek {
+      position: absolute;
+      bottom: -1.6rem;
+      right: 4%;
+      width: clamp(7rem, 14vw, 10rem);
+      transform: rotate(-6deg);
+      opacity: 0.95;
+      pointer-events: none;
+    }
+    @media (max-width: 860px) { .peek { display: none; } }
 
     /* ---------- Footer ---------- */
     footer {
       background: var(--ink);
-      color: rgba(241, 224, 198, 0.65);
-      padding: 0 0 2.5rem;
+      color: rgba(241, 224, 198, 0.7);
+      padding: 2.5rem 0;
     }
     .footer-inner {
-      border-top: 1px solid rgba(241, 224, 198, 0.12);
-      padding-top: 2rem;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 1.5rem;
       font-size: 0.95rem;
+      font-weight: 600;
     }
     .footer-brand {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.8rem;
+    }
+    .footer-brand svg { width: 3.4rem; height: 3.4rem; }
+    .footer-brand .word {
       font-family: 'Fredoka', sans-serif;
       font-weight: 600;
-      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      font-size: 1.05rem;
+      color: var(--cream);
+      text-transform: uppercase;
+    }
+    .footer-brand .copy { display: block; font-family: 'Nunito', sans-serif; font-size: 0.85rem; color: rgba(241, 224, 198, 0.6); text-transform: none; letter-spacing: 0; }
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .footer-social .label {
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--cream);
     }
-    .footer-brand svg { width: 1.6rem; height: 1.6rem; }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      transition: background-color 200ms ease-out;
+    }
+    .footer-social a:hover { background: rgba(241, 224, 198, 0.14); }
+    .footer-social svg { width: 1.5rem; height: 1.5rem; fill: var(--cream); }
 
     /* ---------- Scroll reveal ---------- */
     .reveal {
@@ -551,16 +607,16 @@
     /* ---------- Reduced motion ---------- */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .cloud, .sparkle, .mascot-bob, .ticker-track { animation: none; }
+      .art-fries, .art-piadina, .art-ramune, .sparkle { animation: none; }
       .reveal { opacity: 1; transform: none; transition: none; }
-      .feature-card:hover, .menu-card:hover { transform: none; }
+      .menu-card:hover { transform: none; }
       * { transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
-<body>
+<body id="home">
 
-  <!-- ===== Tanuki mascot (reusable) ===== -->
+  <!-- ===== Shared SVG assets ===== -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <g id="tanuki">
@@ -601,6 +657,32 @@
         <circle cx="78" cy="158" r="3.5" stroke="#8a9461" stroke-width="2" fill="none"/>
         <circle cx="122" cy="158" r="3.5" stroke="#8a9461" stroke-width="2" fill="none"/>
       </g>
+
+      <!-- Round badge logo -->
+      <g id="badge">
+        <circle cx="100" cy="100" r="96" fill="#fff" stroke="#282827" stroke-width="5"/>
+        <circle cx="100" cy="100" r="82" fill="#4d6132" stroke="#282827" stroke-width="4"/>
+        <circle cx="100" cy="100" r="50" fill="#fff" stroke="#282827" stroke-width="4"/>
+        <!-- fries left -->
+        <g transform="rotate(18 38 140)">
+          <rect x="26" y="96" width="10" height="74" rx="5" fill="#f2d23c" stroke="#282827" stroke-width="3"/>
+          <rect x="40" y="88" width="10" height="82" rx="5" fill="#f2d23c" stroke="#282827" stroke-width="3"/>
+        </g>
+        <!-- fries right -->
+        <g transform="rotate(-18 162 140)">
+          <rect x="164" y="96" width="10" height="74" rx="5" fill="#f2d23c" stroke="#282827" stroke-width="3"/>
+          <rect x="150" y="88" width="10" height="82" rx="5" fill="#f2d23c" stroke="#282827" stroke-width="3"/>
+        </g>
+        <!-- mascot -->
+        <g transform="translate(57 60) scale(0.43)"><use href="#tanuki"/></g>
+        <!-- curved wordmark -->
+        <path id="badgeArc" d="M 33 100 A 67 67 0 0 1 167 100" fill="none"/>
+        <text font-family="Fredoka, sans-serif" font-weight="700" font-size="25" fill="#fff" letter-spacing="4">
+          <textPath href="#badgeArc" startOffset="50%" text-anchor="middle">TANUKIFRY</textPath>
+        </text>
+        <text x="100" y="172" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="#fff">タヌキフライ</text>
+      </g>
+
       <!-- Line icons recreated from brand assets -->
       <symbol id="leaf-icon" viewBox="0 0 24 24">
         <path d="M17.5 7.5 21 4.5"/>
@@ -611,6 +693,7 @@
         <path d="M7.6 12.5 9.7 5.3M11.2 12 13.2 4.8M14.7 11.5 16.3 5.6M17.8 11.7 19.2 7"/>
         <path d="M6 9.9c.8-1.4 1.7-1.4 2.5 0s1.7 1.4 2.5 0 1.7-1.4 2.5 0 1.7 1.4 2.5 0 1.6-1.3 2.4-.1"/>
         <path d="M3.5 12.5h17l-2.4 6.6c-.2.5-.7.9-1.3.9H7.2c-.6 0-1.1-.4-1.3-.9L3.5 12.5z"/>
+        <path d="M11 16.4c0-1.1 1-1.8 2.9-2-.1 1.8-.9 2.7-2.1 2.7-.5 0-.8-.3-.8-.7z"/>
       </symbol>
       <symbol id="piadina-icon" viewBox="0 0 24 24">
         <path d="M3.5 15.8A10.6 10.6 0 0 1 19.6 8.2"/>
@@ -623,6 +706,7 @@
         <path d="M9.9 4.1h4.2v2.3c0 1 .9 1.5 1.2 2.5.3 1.1-.8 1.6-.8 2.7v7a2.4 2.4 0 0 1-2.4 2.4h-.2a2.4 2.4 0 0 1-2.4-2.4v-7c0-1.1-1.1-1.6-.8-2.7.3-1 1.2-1.5 1.2-2.5z"/>
         <circle cx="12" cy="7.3" r="1.6"/>
         <path d="M9.8 13.2h4.4"/>
+        <path d="M10.1 16.7c0-1.2 1.1-2 3.2-2.2-.1 2-1 3-2.3 3-.5 0-.9-.3-.9-.8zM10.7 16.9c.8-.9 1.7-1.6 3.2-2.4"/>
       </symbol>
       <symbol id="can-icon" viewBox="0 0 24 24">
         <ellipse cx="12" cy="4.4" rx="5" ry="1.7"/>
@@ -630,11 +714,18 @@
         <path d="M7 4.6v.8c0 .6-.6 1-.6 1.7v11.3c0 .9.5 1.6 1.3 1.9.9.4 2.3.7 4.3.7s3.4-.3 4.3-.7c.8-.3 1.3-1 1.3-1.9V7.1c0-.7-.6-1.1-.6-1.7v-.8"/>
         <path d="M9.9 14.3c0-1.7 1.5-2.8 4.4-3.1-.2 2.8-1.4 4.2-3.2 4.2-.8 0-1.2-.4-1.2-1.1zM10.7 14.6c1.1-1.3 2.3-2.2 4.4-3.4"/>
       </symbol>
-      <symbol id="cloud-shape" viewBox="0 0 100 60">
-        <path d="M25 50 a14 14 0 0 1 0 -28 a18 18 0 0 1 34 -6 a15 15 0 0 1 21 14 a12 12 0 0 1 -4 20 z"/>
+      <symbol id="cup-icon" viewBox="0 0 24 24">
+        <path d="M8.6 5.3c0-1.6 1.1-2.6 3.4-2.6s3.4 1 3.4 2.6"/>
+        <path d="M9.8 4.1h1.8"/>
+        <path d="M7.3 5.3h9.4c.5 0 .9.3 1 .8l.2 1c.1.6-.3 1.2-1 1.2H7.1c-.7 0-1.1-.6-1-1.2l.2-1c.1-.5.5-.8 1-.8z"/>
+        <path d="M7.2 8.3 8.5 20c.1.8.7 1.3 1.4 1.3h4.2c.7 0 1.3-.5 1.4-1.3l1.3-11.7"/>
+        <path d="M9.9 13.6c0-1.6 1.4-2.7 4.2-3-.2 2.7-1.4 4-3.1 4-.7 0-1.1-.4-1.1-1zM10.6 13.9c1-1.2 2.2-2.1 4.2-3.2"/>
       </symbol>
       <symbol id="sparkle-shape" viewBox="0 0 24 24">
         <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"/>
+      </symbol>
+      <symbol id="pin-icon" viewBox="0 0 24 24">
+        <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>
       </symbol>
     </defs>
   </svg>
@@ -642,9 +733,9 @@
   <!-- ===== Navigation ===== -->
   <header class="nav">
     <div class="nav-inner">
-      <a href="#start" class="nav-brand" aria-label="TanukiFry – zur Startseite">
-        <svg viewBox="0 0 200 190" aria-hidden="true"><use href="#tanuki"/></svg>
-        TanukiFry
+      <a href="#home" class="nav-brand" aria-label="TanukiFry – zur Startseite">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><use href="#badge"/></svg>
+        <span class="word">TANUKIFRY</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
@@ -652,114 +743,94 @@
         </svg>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#start">Start</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#angebot">Unser Angebot</a></li>
         <li><a href="#speisekarte">Speisekarte</a></li>
         <li><a href="#ueber-uns">Über uns</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="#speisekarte" class="nav-cta">Jetzt bestellen</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#location" class="nav-cta">Komm vorbei</a></li>
       </ul>
     </div>
   </header>
 
-  <main id="start">
+  <main>
 
     <!-- ===== Hero ===== -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <span class="hero-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#leaf-icon"/></svg>
-            <span lang="ja">タヌキフライ</span> · Frisch · To Go
-          </span>
-          <h1 id="hero-title">Knusprig. Süß.<br><span class="accent">Himmlisch gut.</span></h1>
+          <h1 id="hero-title"><span class="t-olive">TANUKI</span><span class="t-ink">FRY</span></h1>
+          <p class="sub">Long Fries, Piadina &amp; Drinks</p>
+          <p class="sub-olive">To go in Klagenfurt</p>
           <p class="lead">
-            Willkommen bei TanukiFry – deinem kleinen Glücksort für Piadina,
-            goldene Fries und japanische Limonade. Frisch zubereitet, mit Liebe serviert.
+            Frisch zubereitet, schnell serviert und mit viel Liebe gemacht.
+            Dein perfekter Snack für unterwegs!
           </p>
-          <div class="btn-row">
-            <a href="#speisekarte" class="btn btn-primary">
-              Zur Speisekarte
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M5 12h14M13 6l6 6-6 6"/>
-              </svg>
-            </a>
-            <a href="#kontakt" class="btn btn-ghost">Öffnungszeiten</a>
-          </div>
+          <a href="#speisekarte" class="btn btn-primary">Unsere Speisekarte</a>
         </div>
         <div class="hero-art reveal reveal-delay-2" aria-hidden="true">
-          <svg class="cloud cloud-1" viewBox="0 0 100 60"><use href="#cloud-shape"/></svg>
-          <svg class="cloud cloud-2" viewBox="0 0 100 60"><use href="#cloud-shape"/></svg>
-          <svg class="cloud cloud-3" viewBox="0 0 100 60"><use href="#cloud-shape"/></svg>
           <svg class="sparkle sparkle-1" viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>
           <svg class="sparkle sparkle-2" viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>
           <svg class="sparkle sparkle-3" viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>
-          <div class="hero-blob">
-            <svg class="mascot-bob" viewBox="0 0 200 190" role="img" aria-label="Tanuki-Maskottchen von TanukiFry">
-              <use href="#tanuki"/>
-            </svg>
+          <svg class="art-piadina" viewBox="0 0 24 24"><use href="#piadina-icon"/></svg>
+          <svg class="art-fries" viewBox="0 0 24 24"><use href="#fries-icon"/></svg>
+          <svg class="art-ramune" viewBox="0 0 24 24"><use href="#ramune-icon"/></svg>
+        </div>
+      </div>
+      <div class="waves" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== Unser Angebot ===== -->
+    <section class="angebot" id="angebot" aria-labelledby="angebot-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="angebot-title">Unser Angebot</h2>
+        </div>
+        <div class="angebot-grid">
+          <div class="angebot-item reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#fries-icon"/></svg></div>
+            <div>
+              <h3>Long Fries</h3>
+              <p>Knusprig, lang und unwiderstehlich.</p>
+            </div>
+          </div>
+          <div class="angebot-item reveal reveal-delay-1">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#piadina-icon"/></svg></div>
+            <div>
+              <h3>Piadina</h3>
+              <p>Frisch gefüllt und einfach lecker.</p>
+            </div>
+          </div>
+          <div class="angebot-item reveal reveal-delay-2">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ramune-icon"/></svg></div>
+            <div>
+              <h3>Softdrinks</h3>
+              <p>Kühle Erfrischung – direkt aus Japan.</p>
+            </div>
+          </div>
+          <div class="angebot-item reveal reveal-delay-2">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#can-icon"/></svg></div>
+            <div>
+              <h3>Energy Drinks</h3>
+              <p>Für den extra Energie-Kick.</p>
+            </div>
+          </div>
+          <div class="angebot-item reveal reveal-delay-3">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#cup-icon"/></svg></div>
+            <div>
+              <h3>Café &amp; Tee</h3>
+              <p>Ein heißes Getränk – perfekt für unterwegs.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Ticker ===== -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track" id="tickerTrack">
-        <!-- duplicated by JS for seamless loop -->
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Piadina frisch vom Grill</span>
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Long &amp; Short Fries</span>
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Ramune in drei Sorten</span>
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Yuzu Limonade</span>
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Kaffee &amp; Tee to go</span>
-      </div>
-    </div>
-
-    <!-- ===== Features ===== -->
-    <section aria-labelledby="features-title">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="section-eyebrow">Warum TanukiFry?</span>
-          <h2 id="features-title">Kleines Lokal, großes Glück</h2>
-          <p>Wir halten es einfach: wenige Gerichte, dafür jedes davon mit Sorgfalt und den besten Zutaten.</p>
-        </div>
-        <div class="features">
-          <article class="feature-card reveal">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <use href="#leaf-icon"/>
-              </svg>
-            </div>
-            <h3>Frisch &amp; knusprig</h3>
-            <p>Jede Piadina und jede Portion Fries wird erst zubereitet, wenn du bestellst – heiß, knusprig, perfekt.</p>
-          </article>
-          <article class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12C19 16.5 12 21 12 21z"/>
-              </svg>
-            </div>
-            <h3>Mit Liebe gemacht</h3>
-            <p>Unser kleines Team kennt seine Stammgäste beim Namen. Bei uns bist du Gast, nicht Bestellnummer.</p>
-          </article>
-          <article class="feature-card reveal reveal-delay-2">
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M5 8h11l3 4v5h-2.5M5 8v9h1.5M5 8 6 5h8l2 3M8.5 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm9 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm-7-2h5"/>
-              </svg>
-            </div>
-            <h3>Schnell to go</h3>
-            <p>Kurz vorbeischauen, mitnehmen, glücklich sein – ideal für die Mittagspause oder den kleinen Hunger.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Menu ===== -->
+    <!-- ===== Speisekarte ===== -->
     <section class="menu-section" id="speisekarte" aria-labelledby="menu-title">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-eyebrow">Speisekarte</span>
-          <h2 id="menu-title">Was darf's heute sein?</h2>
+          <h2 id="menu-title">Speisekarte</h2>
           <p>Von herzhafter Piadina bis zu spritziger Ramune – klein, fein und himmlisch lecker.</p>
         </div>
         <div class="menu-grid">
@@ -767,9 +838,7 @@
           <article class="menu-card reveal">
             <div class="menu-card-head">
               <div class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <use href="#piadina-icon"/>
-                </svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#piadina-icon"/></svg>
               </div>
               <div>
                 <h3>Piadina</h3>
@@ -788,9 +857,7 @@
           <article class="menu-card reveal reveal-delay-1">
             <div class="menu-card-head">
               <div class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <use href="#fries-icon"/>
-                </svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#fries-icon"/></svg>
               </div>
               <div>
                 <h3>Fries</h3>
@@ -807,9 +874,7 @@
           <article class="menu-card reveal">
             <div class="menu-card-head">
               <div class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <use href="#ramune-icon"/>
-                </svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ramune-icon"/></svg>
               </div>
               <div>
                 <h3>Softdrinks</h3>
@@ -831,9 +896,7 @@
           <article class="menu-card reveal reveal-delay-1">
             <div class="menu-card-head">
               <div class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <use href="#can-icon"/>
-                </svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#cup-icon"/></svg>
               </div>
               <div>
                 <h3>Energy, Kaffee &amp; Tee</h3>
@@ -857,7 +920,7 @@
       </div>
     </section>
 
-    <!-- ===== About ===== -->
+    <!-- ===== Über uns ===== -->
     <section id="ueber-uns" aria-labelledby="about-title">
       <div class="container about-grid">
         <div class="about-art reveal" aria-hidden="true">
@@ -866,12 +929,11 @@
           </div>
         </div>
         <div class="about-copy reveal reveal-delay-1">
-          <span class="section-eyebrow">Über uns</span>
           <h2 id="about-title">Der Tanuki bringt Glück – wir bringen das Essen</h2>
           <p>
             In Japan gilt der Tanuki als verspielter Glücksbringer, der gute Laune und
-            Wohlstand ins Haus bringt. Genau dieses Gefühl wollten wir in unser kleines
-            Lokal holen: ein Ort, an dem es nach frischer Piadina duftet, die Fries
+            Wohlstand ins Haus bringt. Genau dieses Gefühl wollten wir nach Klagenfurt
+            holen: ein Ort, an dem es nach frischer Piadina duftet, die Long Fries
             golden knuspern und die Ramune-Kugel fröhlich klickert.
           </p>
           <p>
@@ -883,58 +945,65 @@
       </div>
     </section>
 
-    <!-- ===== Contact ===== -->
-    <section class="contact-section" id="kontakt" aria-labelledby="contact-title">
+    <!-- ===== Location ===== -->
+    <section class="location" id="location" aria-labelledby="location-title">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="section-eyebrow">Kontakt &amp; Öffnungszeiten</span>
-          <h2 id="contact-title">Schau bei uns vorbei</h2>
-          <p>Wir freuen uns auf dich – ob für die schnelle Mittagspause oder den gemütlichen Kaffee.</p>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-card reveal">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>
-              </svg>
+        <div class="location-grid">
+          <div class="reveal">
+            <h2 id="location-title">Wo findest du uns?</h2>
+            <ul class="addr-list">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#pin-icon"/></svg>TanukiFry Klagenfurt</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#pin-icon"/></svg>Bahnhofstraße 42</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#pin-icon"/></svg>9020 Klagenfurt am Wörthersee</li>
+            </ul>
+            <a class="btn btn-outline-light" href="https://www.google.com/maps/search/?api=1&amp;query=Bahnhofstra%C3%9Fe+42%2C+9020+Klagenfurt+am+W%C3%B6rthersee" target="_blank" rel="noopener">
+              Auf Google Maps ansehen
+            </a>
+            <div class="hours">
+              <h3>Öffnungszeiten</h3>
+              <table>
+                <tr><td>Montag – Freitag</td><td>09:00 – 20:00 Uhr</td></tr>
+                <tr><td>Samstag</td><td>10:00 – 20:00 Uhr</td></tr>
+                <tr><td>Sonntag</td><td>11:00 – 18:00 Uhr</td></tr>
+              </table>
             </div>
-            <h3>Adresse</h3>
-            <p>Musterstraße 12<br>1010 Wien</p>
           </div>
-          <div class="contact-card reveal reveal-delay-1">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>
-              </svg>
-            </div>
-            <h3>Öffnungszeiten</h3>
-            <p>Mo – Fr: 11:00 – 20:00<br>Sa: 12:00 – 18:00<br>So &amp; Feiertag: geschlossen</p>
-          </div>
-          <div class="contact-card reveal reveal-delay-2">
-            <div class="icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M5 4h4l1.5 4.5L8 10a12 12 0 0 0 6 6l1.5-2.5L20 15v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/>
-              </svg>
-            </div>
-            <h3>Bestellung &amp; Fragen</h3>
-            <p>
-              <a href="tel:+431234567">+43 1 234 567</a><br>
-              <a href="mailto:hallo@tanukifry.at">hallo@tanukifry.at</a>
-            </p>
+          <div class="reveal reveal-delay-1">
+            <iframe class="map-frame" loading="lazy"
+              title="Karte: TanukiFry, Bahnhofstraße 42, 9020 Klagenfurt am Wörthersee"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=Bahnhofstra%C3%9Fe%2042%2C%209020%20Klagenfurt%20am%20W%C3%B6rthersee&amp;z=15&amp;output=embed"></iframe>
           </div>
         </div>
       </div>
+      <svg class="peek" viewBox="0 0 200 190" aria-hidden="true"><use href="#tanuki"/></svg>
     </section>
   </main>
 
   <!-- ===== Footer ===== -->
   <footer>
     <div class="container footer-inner">
-      <span class="footer-brand">
-        <svg viewBox="0 0 200 190" aria-hidden="true"><use href="#tanuki"/></svg>
-        TanukiFry
-      </span>
-      <span>© 2026 TanukiFry · <span lang="ja">タヌキフライ</span> · Knusprig. Süß. Himmlisch gut.</span>
+      <div class="footer-brand">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><use href="#badge"/></svg>
+        <span class="word">TanukiFry
+          <span class="copy">© 2026 TanukiFry Klagenfurt · <span lang="ja">タヌキフライ</span></span>
+        </span>
+      </div>
+      <div class="footer-social">
+        <span class="label">Folge uns</span>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="TanukiFry auf Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="stroke: var(--cream); fill: none;" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" style="fill: var(--cream);"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="TanukiFry auf Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </footer>
 
@@ -954,11 +1023,7 @@
       }
     });
 
-    // Seamless ticker loop: duplicate items once
-    const track = document.getElementById('tickerTrack');
-    track.innerHTML += track.innerHTML;
-
-    // Scroll reveal (skipped entirely under reduced motion via CSS)
+    // Scroll reveal (disabled entirely under reduced motion via CSS)
     const reveals = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
