@@ -304,7 +304,14 @@
       white-space: nowrap;
       letter-spacing: 0.03em;
     }
-    .ticker-item svg { width: 0.6rem; height: 0.6rem; fill: var(--tan); }
+    .ticker-item svg {
+      width: 1rem; height: 1rem;
+      fill: none;
+      stroke: var(--tan);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
     @keyframes ticker {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
@@ -393,7 +400,7 @@
       align-items: center;
       justify-content: center;
     }
-    .menu-card-head .icon svg { width: 1.5rem; height: 1.5rem; stroke: var(--olive); }
+    .menu-card-head .icon svg { width: 1.7rem; height: 1.7rem; stroke: var(--olive); }
     .menu-card-head h3 { font-size: 1.4rem; font-weight: 600; }
     .menu-card-head .sub { font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; }
 
@@ -558,30 +565,71 @@
     <defs>
       <g id="tanuki">
         <!-- ears -->
-        <ellipse cx="62" cy="38" rx="22" ry="26" fill="#8a6f4d" transform="rotate(-18 62 38)"/>
-        <ellipse cx="138" cy="38" rx="22" ry="26" fill="#8a6f4d" transform="rotate(18 138 38)"/>
-        <ellipse cx="64" cy="42" rx="12" ry="15" fill="#e9d1b3" transform="rotate(-18 64 42)"/>
-        <ellipse cx="136" cy="42" rx="12" ry="15" fill="#e9d1b3" transform="rotate(18 136 42)"/>
+        <circle cx="56" cy="46" r="20" fill="#5c4632"/>
+        <circle cx="144" cy="46" r="20" fill="#5c4632"/>
+        <circle cx="58" cy="49" r="10" fill="#d9a081"/>
+        <circle cx="142" cy="49" r="10" fill="#d9a081"/>
         <!-- head -->
-        <ellipse cx="100" cy="105" rx="72" ry="66" fill="#a8895f"/>
-        <!-- face patch -->
-        <ellipse cx="100" cy="122" rx="52" ry="44" fill="#f1e0c6"/>
+        <ellipse cx="100" cy="102" rx="70" ry="62" fill="#a8895f"/>
+        <!-- cream face patch -->
+        <ellipse cx="100" cy="118" rx="50" ry="40" fill="#f1e0c6"/>
+        <!-- leaf on head (brand mark) -->
+        <g transform="rotate(-10 104 30)">
+          <path d="M120 16l9-7" stroke="#606942" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <path d="M86 34c0-12 12-19 34-20-2 19-11 28-24 28-6 0-10-3-10-8z" fill="#606942"/>
+          <path d="M91 36c8-9 16-15 27-19M99 29l-2-6M106 24l-2-5" stroke="#f1e0c6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
         <!-- eye masks -->
-        <ellipse cx="68" cy="96" rx="22" ry="17" fill="#5c4632" transform="rotate(-10 68 96)"/>
-        <ellipse cx="132" cy="96" rx="22" ry="17" fill="#5c4632" transform="rotate(10 132 96)"/>
-        <!-- eyes -->
-        <circle cx="70" cy="96" r="6.5" fill="#282827"/>
-        <circle cx="130" cy="96" r="6.5" fill="#282827"/>
-        <circle cx="72.5" cy="93.5" r="2.2" fill="#fff"/>
-        <circle cx="132.5" cy="93.5" r="2.2" fill="#fff"/>
-        <!-- snout -->
-        <ellipse cx="100" cy="122" rx="10" ry="7.5" fill="#282827"/>
-        <!-- smile -->
-        <path d="M86 136 Q100 148 114 136" stroke="#282827" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+        <ellipse cx="66" cy="100" rx="22" ry="16" fill="#5c4632" transform="rotate(-8 66 100)"/>
+        <ellipse cx="134" cy="100" rx="22" ry="16" fill="#5c4632" transform="rotate(8 134 100)"/>
+        <!-- happy closed eyes -->
+        <path d="M57 102q10-11 20 0" stroke="#f1e0c6" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path d="M123 102q10-11 20 0" stroke="#f1e0c6" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <!-- whiskers -->
+        <path d="M53 121l11-2M54 128l10 1M136 119l11 2M136 129l10-1" stroke="#5c4632" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <!-- nose -->
+        <ellipse cx="100" cy="117" rx="8.5" ry="6.5" fill="#282827"/>
+        <!-- open smile + tongue -->
+        <path d="M87 129q13 12 26 0" stroke="#282827" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+        <path d="M94 133a6 5 0 0 0 12 0z" fill="#d9786a"/>
         <!-- blush -->
-        <ellipse cx="56" cy="124" rx="9" ry="5.5" fill="#d9a47e" opacity="0.7"/>
-        <ellipse cx="144" cy="124" rx="9" ry="5.5" fill="#d9a47e" opacity="0.7"/>
+        <ellipse cx="61" cy="112" rx="8" ry="5" fill="#d9a47e" opacity="0.8" transform="rotate(-8 61 112)"/>
+        <ellipse cx="139" cy="112" rx="8" ry="5" fill="#d9a47e" opacity="0.8" transform="rotate(8 139 112)"/>
+        <!-- bandana with swirls -->
+        <path d="M58 150q42 22 84 0l-8 15q-34 14-68 0z" fill="#606942"/>
+        <path d="M92 164q8 6 16 0l-3 13q-5 4-10 0z" fill="#606942"/>
+        <circle cx="78" cy="158" r="3.5" stroke="#8a9461" stroke-width="2" fill="none"/>
+        <circle cx="122" cy="158" r="3.5" stroke="#8a9461" stroke-width="2" fill="none"/>
       </g>
+      <!-- Line icons recreated from brand assets -->
+      <symbol id="leaf-icon" viewBox="0 0 24 24">
+        <path d="M17.5 7.5 21 4.5"/>
+        <path d="M4.5 15c0-5 4.5-7.8 13.5-8.3-.8 8-4.3 11.8-9.7 11.8-2.4 0-3.8-1.3-3.8-3.5z"/>
+        <path d="M6.5 16.5c3.2-3.6 6.6-6.3 11-9M10.3 13 9 10.2M13.4 10.6l-.9-2.5"/>
+      </symbol>
+      <symbol id="fries-icon" viewBox="0 0 24 24">
+        <path d="M7.6 12.5 9.7 5.3M11.2 12 13.2 4.8M14.7 11.5 16.3 5.6M17.8 11.7 19.2 7"/>
+        <path d="M6 9.9c.8-1.4 1.7-1.4 2.5 0s1.7 1.4 2.5 0 1.7-1.4 2.5 0 1.7 1.4 2.5 0 1.6-1.3 2.4-.1"/>
+        <path d="M3.5 12.5h17l-2.4 6.6c-.2.5-.7.9-1.3.9H7.2c-.6 0-1.1-.4-1.3-.9L3.5 12.5z"/>
+      </symbol>
+      <symbol id="piadina-icon" viewBox="0 0 24 24">
+        <path d="M3.5 15.8A10.6 10.6 0 0 1 19.6 8.2"/>
+        <path d="M19.6 8.2c-.9 1.1-1.9 1.4-2.8 1.1.2 1.3-.8 2.2-1.9 2.1.1 1.3-1 2.1-2.1 1.9.1 1.2-1 2-2.1 1.8-.1 1.1-1.2 1.7-2.3 1.4-.4 1-1.5 1.4-2.6 1-.9.2-1.7-.1-2.3-1.7"/>
+        <path d="M8.3 9.2l.9-.5M11.4 7.4l.9-.5M9.8 11.8l.9-.5M13 9.8l.9-.5M6.6 12l.9-.5"/>
+        <circle cx="14.6" cy="11.9" r="1.2"/>
+      </symbol>
+      <symbol id="ramune-icon" viewBox="0 0 24 24">
+        <path d="M10.4 2.2h3.2v1.9h-3.2z"/>
+        <path d="M9.9 4.1h4.2v2.3c0 1 .9 1.5 1.2 2.5.3 1.1-.8 1.6-.8 2.7v7a2.4 2.4 0 0 1-2.4 2.4h-.2a2.4 2.4 0 0 1-2.4-2.4v-7c0-1.1-1.1-1.6-.8-2.7.3-1 1.2-1.5 1.2-2.5z"/>
+        <circle cx="12" cy="7.3" r="1.6"/>
+        <path d="M9.8 13.2h4.4"/>
+      </symbol>
+      <symbol id="can-icon" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="4.4" rx="5" ry="1.7"/>
+        <ellipse cx="12" cy="4.3" rx="1.2" ry="0.6"/>
+        <path d="M7 4.6v.8c0 .6-.6 1-.6 1.7v11.3c0 .9.5 1.6 1.3 1.9.9.4 2.3.7 4.3.7s3.4-.3 4.3-.7c.8-.3 1.3-1 1.3-1.9V7.1c0-.7-.6-1.1-.6-1.7v-.8"/>
+        <path d="M9.9 14.3c0-1.7 1.5-2.8 4.4-3.1-.2 2.8-1.4 4.2-3.2 4.2-.8 0-1.2-.4-1.2-1.1zM10.7 14.6c1.1-1.3 2.3-2.2 4.4-3.4"/>
+      </symbol>
       <symbol id="cloud-shape" viewBox="0 0 100 60">
         <path d="M25 50 a14 14 0 0 1 0 -28 a18 18 0 0 1 34 -6 a15 15 0 0 1 21 14 a12 12 0 0 1 -4 20 z"/>
       </symbol>
@@ -620,8 +668,8 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <span class="hero-badge">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle-shape"/></svg>
-            Frisch · Hausgemacht · To Go
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#leaf-icon"/></svg>
+            <span lang="ja">タヌキフライ</span> · Frisch · To Go
           </span>
           <h1 id="hero-title">Knusprig. Süß.<br><span class="accent">Himmlisch gut.</span></h1>
           <p class="lead">
@@ -658,11 +706,11 @@
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track" id="tickerTrack">
         <!-- duplicated by JS for seamless loop -->
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>Piadina frisch vom Grill</span>
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>Long &amp; Short Fries</span>
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>Ramune in drei Sorten</span>
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>Yuzu Limonade</span>
-        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>Kaffee &amp; Tee to go</span>
+        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Piadina frisch vom Grill</span>
+        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Long &amp; Short Fries</span>
+        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Ramune in drei Sorten</span>
+        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Yuzu Limonade</span>
+        <span class="ticker-item"><svg viewBox="0 0 24 24"><use href="#leaf-icon"/></svg>Kaffee &amp; Tee to go</span>
       </div>
     </div>
 
@@ -677,8 +725,8 @@
         <div class="features">
           <article class="feature-card reveal">
             <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 3c1 2.5-.5 3.5-.5 5.5A3.5 3.5 0 0 0 15 12c2 0 3-1 3-1s.5 6.5-3 9c-2 1.4-6 1.5-8-.5s-2.4-5.6-1-8c1.5-2.6 4.5-3 6-8.5z"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <use href="#leaf-icon"/>
               </svg>
             </div>
             <h3>Frisch &amp; knusprig</h3>
@@ -719,8 +767,8 @@
           <article class="menu-card reveal">
             <div class="menu-card-head">
               <div class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M3 14a9 4.5 0 0 1 18 0M3 14h18M5 14l1.5 4h11L19 14"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <use href="#piadina-icon"/>
                 </svg>
               </div>
               <div>
@@ -740,8 +788,8 @@
           <article class="menu-card reveal reveal-delay-1">
             <div class="menu-card-head">
               <div class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M7 9 6 4m5 5V3.5M14 9l1-5.5M17 9l1.5-4M5.5 9h13L17 21H7L5.5 9z"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <use href="#fries-icon"/>
                 </svg>
               </div>
               <div>
@@ -759,8 +807,8 @@
           <article class="menu-card reveal">
             <div class="menu-card-head">
               <div class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 3h8l-1 4H9L8 3zM9 7l-1.5 13a1.5 1.5 0 0 0 1.5 1h6a1.5 1.5 0 0 0 1.5-1L15 7M8.5 12h7"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <use href="#ramune-icon"/>
                 </svg>
               </div>
               <div>
@@ -783,8 +831,8 @@
           <article class="menu-card reveal reveal-delay-1">
             <div class="menu-card-head">
               <div class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M4 9h13v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9zM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 5.5c0-1 .8-1 .8-2M12 5.5c0-1 .8-1 .8-2"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <use href="#can-icon"/>
                 </svg>
               </div>
               <div>
@@ -886,7 +934,7 @@
         <svg viewBox="0 0 200 190" aria-hidden="true"><use href="#tanuki"/></svg>
         TanukiFry
       </span>
-      <span>© 2026 TanukiFry · Knusprig. Süß. Himmlisch gut.</span>
+      <span>© 2026 TanukiFry · <span lang="ja">タヌキフライ</span> · Knusprig. Süß. Himmlisch gut.</span>
     </div>
   </footer>
 
