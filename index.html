@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TanukiFry – Long Fries, Piadina &amp; Drinks to go in Klagenfurt</title>
+  <meta name="description" content="TanukiFry Klagenfurt – Long Fries, Piadina, Ramune & Kaffee to go. Frisch zubereitet, schnell serviert und mit viel Liebe gemacht.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --olive: #606942;
+      --olive-soft: #7a8456;
+      --olive-deep: #4d6132;
+      --ink: #282827;
+      --ink-soft: #363532;
+      --cream: #f1e0c6;
+      --tan: #e9d1b3;
+      --paper: #f7ecda;
+      --radius-lg: 2rem;
+      --radius-md: 1.25rem;
+      --shadow-soft: 0 10px 30px -12px rgba(40, 40, 39, 0.18);
+      --shadow-hover: 0 16px 38px -14px rgba(40, 40, 39, 0.26);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .font-display { font-family: 'Fredoka', sans-serif; }
+
+    img, svg, iframe { display: block; }
+
+    a { color: inherit; }
+
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
+
+    ::selection { background: var(--olive); color: var(--cream); }
+
+    :focus-visible {
+      outline: 3px solid var(--olive);
+      outline-offset: 3px;
+      border-radius: 0.5rem;
+    }
+
+    /* ---------- Navigation ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--ink);
+      box-shadow: 0 4px 18px rgba(40, 40, 39, 0.35);
+    }
+    .nav-inner {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0.6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      text-decoration: none;
+    }
+    .nav-brand svg { width: 3.4rem; height: 3.4rem; }
+    .nav-brand .word {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      display: inline-block;
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream);
+      transition: background-color 200ms ease-out, color 200ms ease-out;
+    }
+    .nav-links a:hover { background: rgba(241, 224, 198, 0.14); }
+    .nav-cta {
+      background: var(--olive);
+      margin-left: 0.4rem;
+    }
+    .nav-cta:hover { background: var(--olive-soft) !important; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.6rem;
+      border-radius: 999px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-toggle svg { width: 1.6rem; height: 1.6rem; stroke: var(--cream); }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--ink);
+        padding: 0.75rem 1.25rem 1.25rem;
+        gap: 0.25rem;
+        box-shadow: 0 14px 24px rgba(40, 40, 39, 0.35);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { text-align: center; padding: 0.9rem 1rem; }
+      .nav-cta { margin-left: 0; }
+      .nav-toggle { display: flex; }
+      .nav-inner { position: relative; }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      background: var(--cream);
+      padding: 4.5rem 0 0;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3rem;
+      align-items: center;
+      padding-bottom: 3.5rem;
+    }
+    @media (max-width: 860px) {
+      .hero { padding-top: 3rem; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-copy { display: flex; flex-direction: column; align-items: center; }
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.75rem;
+    }
+    .hero h1 .t-olive { color: var(--olive); }
+    .hero h1 .t-ink { color: var(--ink); }
+
+    .hero .sub {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .hero .sub-olive {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: clamp(1rem, 2.3vw, 1.3rem);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 1.5rem;
+    }
+    .hero p.lead {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      max-width: 26rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.85rem 1.8rem;
+      min-height: 44px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background-color 200ms ease-out, color 200ms ease-out, box-shadow 200ms ease-out;
+    }
+    .btn-primary {
+      background: var(--olive);
+      color: var(--cream);
+      box-shadow: 0 8px 22px -8px rgba(96, 105, 66, 0.55);
+    }
+    .btn-primary:hover { background: var(--olive-soft); color: #fff; }
+    .btn-outline-light {
+      border-color: var(--cream);
+      color: var(--cream);
+      background: transparent;
+    }
+    .btn-outline-light:hover { background: rgba(241, 224, 198, 0.16); }
+
+    /* Hero illustration */
+    .hero-art {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0;
+      min-height: 18rem;
+    }
+    .hero-art svg { stroke: var(--olive); fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .art-fries {
+      width: min(19rem, 52vw);
+      stroke-width: 1.3;
+      animation: floaty 6s ease-in-out infinite;
+      will-change: transform;
+    }
+    .art-piadina {
+      width: min(10rem, 28vw);
+      stroke-width: 1.4;
+      margin-right: -2rem;
+      margin-bottom: 1.5rem;
+      animation: floaty 6s ease-in-out infinite;
+      animation-delay: -2s;
+      will-change: transform;
+    }
+    .art-ramune {
+      width: min(7rem, 20vw);
+      stroke-width: 1.4;
+      margin-left: -1.5rem;
+      margin-bottom: 1rem;
+      animation: floaty 6s ease-in-out infinite;
+      animation-delay: -4s;
+      will-change: transform;
+    }
+    .sparkle {
+      position: absolute;
+      width: 1.3rem;
+      fill: var(--olive) !important;
+      stroke: none !important;
+      opacity: 0.65;
+      animation: twinkle 3.4s ease-in-out infinite;
+      will-change: transform, opacity;
+    }
+    .sparkle-1 { top: 4%; right: 14%; }
+    .sparkle-2 { top: 22%; left: 6%; animation-delay: -1.2s; width: 1rem; }
+    .sparkle-3 { bottom: 12%; right: 2%; animation-delay: -2.2s; width: 1.05rem; }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+
+    /* Seigaiha wave band */
+    .waves {
+      height: 76px;
+      background-color: var(--cream);
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='48' viewBox='0 0 88 48'%3E%3Cg fill='%23f1e0c6' stroke='%23d2b58e' stroke-width='3'%3E%3Ccircle cx='44' cy='50' r='42'/%3E%3Ccircle cx='44' cy='50' r='28'/%3E%3Ccircle cx='44' cy='50' r='14'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='48' viewBox='0 0 88 48'%3E%3Cg fill='%23f1e0c6' stroke='%23d2b58e' stroke-width='3'%3E%3Ccircle cx='44' cy='50' r='42'/%3E%3Ccircle cx='44' cy='50' r='28'/%3E%3Ccircle cx='44' cy='50' r='14'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat-x, repeat-x;
+      background-size: 88px 48px, 88px 48px;
+      background-position: 0 100%, 44px calc(100% - 26px);
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: 5.5rem 0; }
+    .section-head { text-align: center; max-width: 40rem; margin: 0 auto 3.5rem; }
+    .section-head h2 {
+      font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+    }
+    .section-head p { color: var(--ink-soft); font-size: 1.1rem; font-weight: 600; }
+
+    /* ---------- Angebot ---------- */
+    .angebot { background: var(--paper); }
+    .angebot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+      gap: 2.5rem 2rem;
+      max-width: 66rem;
+      margin: 0 auto;
+    }
+    .angebot-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+    }
+    .angebot-item .icon {
+      flex-shrink: 0;
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+    .angebot-item .icon svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: var(--olive);
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .angebot-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 0.35rem;
+    }
+    .angebot-item p { font-size: 1rem; font-weight: 600; color: var(--ink-soft); }
+    @media (max-width: 640px) {
+      .angebot-grid { grid-template-columns: 1fr; max-width: 22rem; }
+    }
+
+    /* ---------- Menu ---------- */
+    .menu-section { background: var(--tan); }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 860px) { .menu-grid { grid-template-columns: 1fr; } }
+    .menu-card {
+      background: var(--paper);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+      transition: box-shadow 250ms ease-out, transform 250ms ease-out;
+    }
+    .menu-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+    .menu-card-head {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+      padding-bottom: 1.1rem;
+      border-bottom: 2px dashed rgba(96, 105, 66, 0.25);
+    }
+    .menu-card-head .icon {
+      width: 3.2rem; height: 3.2rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-card-head .icon svg {
+      width: 2.6rem; height: 2.6rem;
+      fill: none;
+      stroke: var(--olive);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .menu-card-head h3 { font-size: 1.35rem; font-weight: 600; }
+    .menu-card-head .sub { font-size: 0.9rem; color: var(--ink-soft); font-weight: 600; }
+
+    .menu-list { list-style: none; }
+    .menu-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 0.55rem 0;
+    }
+    .menu-item .name { font-weight: 700; }
+    .menu-item .note { font-size: 0.85rem; color: var(--ink-soft); font-weight: 600; }
+    .menu-item .dots {
+      flex: 1;
+      border-bottom: 2px dotted rgba(96, 105, 66, 0.35);
+      transform: translateY(-4px);
+      min-width: 1.5rem;
+    }
+    .menu-item .price {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      color: var(--olive);
+      white-space: nowrap;
+    }
+    .menu-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    /* ---------- About ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-art { display: flex; justify-content: center; }
+    .about-blob {
+      width: min(19rem, 75vw);
+      aspect-ratio: 1;
+      background: var(--tan);
+      border-radius: 55% 45% 48% 52% / 46% 55% 45% 54%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+    }
+    .about-blob svg { width: 65%; height: auto; }
+    .about-copy h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.18;
+      margin-bottom: 1.25rem;
+    }
+    .about-copy p { color: var(--ink-soft); font-weight: 600; margin-bottom: 1.1rem; }
+    .about-quote {
+      margin-top: 1.75rem;
+      background: var(--paper);
+      border-left: 4px solid var(--olive);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1.25rem 1.5rem;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: var(--olive);
+    }
+
+    /* ---------- Location ---------- */
+    .location {
+      position: relative;
+      background: var(--olive);
+      color: var(--cream);
+      overflow: hidden;
+    }
+    .location h2 {
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) { .location-grid { grid-template-columns: 1fr; } }
+
+    .addr-list { list-style: none; margin-bottom: 1.75rem; }
+    .addr-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.3rem 0;
+      font-weight: 700;
+    }
+    .addr-list svg {
+      width: 1.15rem; height: 1.15rem;
+      flex-shrink: 0;
+      fill: none;
+      stroke: var(--tan);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .map-frame {
+      border: 0;
+      width: 100%;
+      height: 17rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 30px -10px rgba(40, 40, 39, 0.4);
+      background: var(--paper);
+    }
+
+    .hours { margin-top: 2.5rem; }
+    .hours h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .hours table { border-collapse: collapse; width: 100%; max-width: 24rem; }
+    .hours td {
+      padding: 0.35rem 0;
+      font-weight: 700;
+      vertical-align: top;
+    }
+    .hours td + td { text-align: right; color: rgba(241, 224, 198, 0.92); }
+
+    .peek {
+      position: absolute;
+      bottom: -1.6rem;
+      right: 4%;
+      width: clamp(7rem, 14vw, 10rem);
+      transform: rotate(-6deg);
+      opacity: 0.95;
+      pointer-events: none;
+    }
+    @media (max-width: 860px) { .peek { display: none; } }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: var(--ink);
+      color: rgba(241, 224, 198, 0.7);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .footer-brand svg { width: 3.4rem; height: 3.4rem; }
+    .footer-brand .word {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 1.05rem;
+      color: var(--cream);
+      text-transform: uppercase;
+    }
+    .footer-brand .copy { display: block; font-family: 'Nunito', sans-serif; font-size: 0.85rem; color: rgba(241, 224, 198, 0.6); text-transform: none; letter-spacing: 0; }
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .footer-social .label {
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      transition: background-color 200ms ease-out;
+    }
+    .footer-social a:hover { background: rgba(241, 224, 198, 0.14); }
+    .footer-social svg { width: 1.5rem; height: 1.5rem; fill: var(--cream); }
+
+    /* ---------- Scroll reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 600ms ease-out, transform 600ms ease-out;
+      will-change: transform, opacity;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 100ms; }
+    .reveal-delay-2 { transition-delay: 200ms; }
+    .reveal-delay-3 { transition-delay: 300ms; }
+
+    /* ---------- Reduced motion ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .art-fries, .art-piadina, .art-ramune, .sparkle { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .menu-card:hover { transform: none; }
+      * { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body id="home">
+
+  <!-- ===== Shared SVG assets ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <g id="tanuki">
+        <!-- ears -->
+        <circle cx="56" cy="46" r="20" fill="#5c4632"/>
+        <circle cx="144" cy="46" r="20" fill="#5c4632"/>
+        <circle cx="58" cy="49" r="10" fill="#d9a081"/>
+        <circle cx="142" cy="49" r="10" fill="#d9a081"/>
+        <!-- head -->
+        <ellipse cx="100" cy="102" rx="70" ry="62" fill="#a8895f"/>
+        <!-- cream face patch -->
+        <ellipse cx="100" cy="118" rx="50" ry="40" fill="#f1e0c6"/>
+        <!-- leaf on head (brand mark) -->
+        <g transform="rotate(-10 104 30)">
+          <path d="M120 16l9-7" stroke="#606942" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+          <path d="M86 34c0-12 12-19 34-20-2 19-11 28-24 28-6 0-10-3-10-8z" fill="#606942"/>
+          <path d="M91 36c8-9 16-15 27-19M99 29l-2-6M106 24l-2-5" stroke="#f1e0c6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </g>
+        <!-- eye masks -->
+        <ellipse cx="66" cy="100" rx="22" ry="16" fill="#5c4632" transform="rotate(-8 66 100)"/>
+        <ellipse cx="134" cy="100" rx="22" ry="16" fill="#5c4632" transform="rotate(8 134 100)"/>
+        <!-- happy closed eyes -->
+        <path d="M57 102q10-11 20 0" stroke="#f1e0c6" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path d="M123 102q10-11 20 0" stroke="#f1e0c6" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <!-- whiskers -->
+        <path d="M53 121l11-2M54 128l10 1M136 119l11 2M136 129l10-1" stroke="#5c4632" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <!-- nose -->
+        <ellipse cx="100" cy="117" rx="8.5" ry="6.5" fill="#282827"/>
+        <!-- open smile + tongue -->
+        <path d="M87 129q13 12 26 0" stroke="#282827" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+        <path d="M94 133a6 5 0 0 0 12 0z" fill="#d9786a"/>
+        <!-- blush -->
+        <ellipse cx="61" cy="112" rx="8" ry="5" fill="#d9a47e" opacity="0.8" transform="rotate(-8 61 112)"/>
+        <ellipse cx="139" cy="112" rx="8" ry="5" fill="#d9a47e" opacity="0.8" transform="rotate(8 139 112)"/>
+        <!-- bandana with swirls -->
+        <path d="M58 150q42 22 84 0l-8 15q-34 14-68 0z" fill="#606942"/>
+        <path d="M92 164q8 6 16 0l-3 13q-5 4-10 0z" fill="#606942"/>
+        <circle cx="78" cy="158" r="3.5" stroke="#8a9461" stroke-width="2" fill="none"/>
+        <circle cx="122" cy="158" r="3.5" stroke="#8a9461" stroke-width="2" fill="none"/>
+      </g>
+
+      <!-- Round badge logo -->
+      <g id="badge">
+        <circle cx="100" cy="100" r="96" fill="#fff" stroke="#282827" stroke-width="5"/>
+        <circle cx="100" cy="100" r="82" fill="#4d6132" stroke="#282827" stroke-width="4"/>
+        <circle cx="100" cy="100" r="50" fill="#fff" stroke="#282827" stroke-width="4"/>
+        <!-- fries left -->
+        <g transform="rotate(18 38 140)">
+          <rect x="26" y="96" width="10" height="74" rx="5" fill="#f2d23c" stroke="#282827" stroke-width="3"/>
+          <rect x="40" y="88" width="10" height="82" rx="5" fill="#f2d23c" stroke="#282827" stroke-width="3"/>
+        </g>
+        <!-- fries right -->
+        <g transform="rotate(-18 162 140)">
+          <rect x="164" y="96" width="10" height="74" rx="5" fill="#f2d23c" stroke="#282827" stroke-width="3"/>
+          <rect x="150" y="88" width="10" height="82" rx="5" fill="#f2d23c" stroke="#282827" stroke-width="3"/>
+        </g>
+        <!-- mascot -->
+        <g transform="translate(57 60) scale(0.43)"><use href="#tanuki"/></g>
+        <!-- curved wordmark -->
+        <path id="badgeArc" d="M 33 100 A 67 67 0 0 1 167 100" fill="none"/>
+        <text font-family="Fredoka, sans-serif" font-weight="700" font-size="25" fill="#fff" letter-spacing="4">
+          <textPath href="#badgeArc" startOffset="50%" text-anchor="middle">TANUKIFRY</textPath>
+        </text>
+        <text x="100" y="172" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="#fff">タヌキフライ</text>
+      </g>
+
+      <!-- Line icons recreated from brand assets -->
+      <symbol id="leaf-icon" viewBox="0 0 24 24">
+        <path d="M17.5 7.5 21 4.5"/>
+        <path d="M4.5 15c0-5 4.5-7.8 13.5-8.3-.8 8-4.3 11.8-9.7 11.8-2.4 0-3.8-1.3-3.8-3.5z"/>
+        <path d="M6.5 16.5c3.2-3.6 6.6-6.3 11-9M10.3 13 9 10.2M13.4 10.6l-.9-2.5"/>
+      </symbol>
+      <symbol id="fries-icon" viewBox="0 0 24 24">
+        <path d="M7.6 12.5 9.7 5.3M11.2 12 13.2 4.8M14.7 11.5 16.3 5.6M17.8 11.7 19.2 7"/>
+        <path d="M6 9.9c.8-1.4 1.7-1.4 2.5 0s1.7 1.4 2.5 0 1.7-1.4 2.5 0 1.7 1.4 2.5 0 1.6-1.3 2.4-.1"/>
+        <path d="M3.5 12.5h17l-2.4 6.6c-.2.5-.7.9-1.3.9H7.2c-.6 0-1.1-.4-1.3-.9L3.5 12.5z"/>
+        <path d="M11 16.4c0-1.1 1-1.8 2.9-2-.1 1.8-.9 2.7-2.1 2.7-.5 0-.8-.3-.8-.7z"/>
+      </symbol>
+      <symbol id="piadina-icon" viewBox="0 0 24 24">
+        <path d="M3.5 15.8A10.6 10.6 0 0 1 19.6 8.2"/>
+        <path d="M19.6 8.2c-.9 1.1-1.9 1.4-2.8 1.1.2 1.3-.8 2.2-1.9 2.1.1 1.3-1 2.1-2.1 1.9.1 1.2-1 2-2.1 1.8-.1 1.1-1.2 1.7-2.3 1.4-.4 1-1.5 1.4-2.6 1-.9.2-1.7-.1-2.3-1.7"/>
+        <path d="M8.3 9.2l.9-.5M11.4 7.4l.9-.5M9.8 11.8l.9-.5M13 9.8l.9-.5M6.6 12l.9-.5"/>
+        <circle cx="14.6" cy="11.9" r="1.2"/>
+      </symbol>
+      <symbol id="ramune-icon" viewBox="0 0 24 24">
+        <path d="M10.4 2.2h3.2v1.9h-3.2z"/>
+        <path d="M9.9 4.1h4.2v2.3c0 1 .9 1.5 1.2 2.5.3 1.1-.8 1.6-.8 2.7v7a2.4 2.4 0 0 1-2.4 2.4h-.2a2.4 2.4 0 0 1-2.4-2.4v-7c0-1.1-1.1-1.6-.8-2.7.3-1 1.2-1.5 1.2-2.5z"/>
+        <circle cx="12" cy="7.3" r="1.6"/>
+        <path d="M9.8 13.2h4.4"/>
+        <path d="M10.1 16.7c0-1.2 1.1-2 3.2-2.2-.1 2-1 3-2.3 3-.5 0-.9-.3-.9-.8zM10.7 16.9c.8-.9 1.7-1.6 3.2-2.4"/>
+      </symbol>
+      <symbol id="can-icon" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="4.4" rx="5" ry="1.7"/>
+        <ellipse cx="12" cy="4.3" rx="1.2" ry="0.6"/>
+        <path d="M7 4.6v.8c0 .6-.6 1-.6 1.7v11.3c0 .9.5 1.6 1.3 1.9.9.4 2.3.7 4.3.7s3.4-.3 4.3-.7c.8-.3 1.3-1 1.3-1.9V7.1c0-.7-.6-1.1-.6-1.7v-.8"/>
+        <path d="M9.9 14.3c0-1.7 1.5-2.8 4.4-3.1-.2 2.8-1.4 4.2-3.2 4.2-.8 0-1.2-.4-1.2-1.1zM10.7 14.6c1.1-1.3 2.3-2.2 4.4-3.4"/>
+      </symbol>
+      <symbol id="cup-icon" viewBox="0 0 24 24">
+        <path d="M8.6 5.3c0-1.6 1.1-2.6 3.4-2.6s3.4 1 3.4 2.6"/>
+        <path d="M9.8 4.1h1.8"/>
+        <path d="M7.3 5.3h9.4c.5 0 .9.3 1 .8l.2 1c.1.6-.3 1.2-1 1.2H7.1c-.7 0-1.1-.6-1-1.2l.2-1c.1-.5.5-.8 1-.8z"/>
+        <path d="M7.2 8.3 8.5 20c.1.8.7 1.3 1.4 1.3h4.2c.7 0 1.3-.5 1.4-1.3l1.3-11.7"/>
+        <path d="M9.9 13.6c0-1.6 1.4-2.7 4.2-3-.2 2.7-1.4 4-3.1 4-.7 0-1.1-.4-1.1-1zM10.6 13.9c1-1.2 2.2-2.1 4.2-3.2"/>
+      </symbol>
+      <symbol id="sparkle-shape" viewBox="0 0 24 24">
+        <path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"/>
+      </symbol>
+      <symbol id="pin-icon" viewBox="0 0 24 24">
+        <path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-brand" aria-label="TanukiFry – zur Startseite">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><use href="#badge"/></svg>
+        <span class="word">TANUKIFRY</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#angebot">Unser Angebot</a></li>
+        <li><a href="#speisekarte">Speisekarte</a></li>
+        <li><a href="#ueber-uns">Über uns</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#location" class="nav-cta">Komm vorbei</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <h1 id="hero-title"><span class="t-olive">TANUKI</span><span class="t-ink">FRY</span></h1>
+          <p class="sub">Long Fries, Piadina &amp; Drinks</p>
+          <p class="sub-olive">To go in Klagenfurt</p>
+          <p class="lead">
+            Frisch zubereitet, schnell serviert und mit viel Liebe gemacht.
+            Dein perfekter Snack für unterwegs!
+          </p>
+          <a href="#speisekarte" class="btn btn-primary">Unsere Speisekarte</a>
+        </div>
+        <div class="hero-art reveal reveal-delay-2" aria-hidden="true">
+          <svg class="sparkle sparkle-1" viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>
+          <svg class="sparkle sparkle-2" viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>
+          <svg class="sparkle sparkle-3" viewBox="0 0 24 24"><use href="#sparkle-shape"/></svg>
+          <svg class="art-piadina" viewBox="0 0 24 24"><use href="#piadina-icon"/></svg>
+          <svg class="art-fries" viewBox="0 0 24 24"><use href="#fries-icon"/></svg>
+          <svg class="art-ramune" viewBox="0 0 24 24"><use href="#ramune-icon"/></svg>
+        </div>
+      </div>
+      <div class="waves" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== Unser Angebot ===== -->
+    <section class="angebot" id="angebot" aria-labelledby="angebot-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="angebot-title">Unser Angebot</h2>
+        </div>
+        <div class="angebot-grid">
+          <div class="angebot-item reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#fries-icon"/></svg></div>
+            <div>
+              <h3>Long Fries</h3>
+              <p>Knusprig, lang und unwiderstehlich.</p>
+            </div>
+          </div>
+          <div class="angebot-item reveal reveal-delay-1">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#piadina-icon"/></svg></div>
+            <div>
+              <h3>Piadina</h3>
+              <p>Frisch gefüllt und einfach lecker.</p>
+            </div>
+          </div>
+          <div class="angebot-item reveal reveal-delay-2">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ramune-icon"/></svg></div>
+            <div>
+              <h3>Softdrinks</h3>
+              <p>Kühle Erfrischung – direkt aus Japan.</p>
+            </div>
+          </div>
+          <div class="angebot-item reveal reveal-delay-2">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#can-icon"/></svg></div>
+            <div>
+              <h3>Energy Drinks</h3>
+              <p>Für den extra Energie-Kick.</p>
+            </div>
+          </div>
+          <div class="angebot-item reveal reveal-delay-3">
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#cup-icon"/></svg></div>
+            <div>
+              <h3>Café &amp; Tee</h3>
+              <p>Ein heißes Getränk – perfekt für unterwegs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Speisekarte ===== -->
+    <section class="menu-section" id="speisekarte" aria-labelledby="menu-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="menu-title">Speisekarte</h2>
+          <p>Von herzhafter Piadina bis zu spritziger Ramune – klein, fein und himmlisch lecker.</p>
+        </div>
+        <div class="menu-grid">
+
+          <article class="menu-card reveal">
+            <div class="menu-card-head">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#piadina-icon"/></svg>
+              </div>
+              <div>
+                <h3>Piadina</h3>
+                <p class="sub">Italienisches Fladenbrot, frisch belegt</p>
+              </div>
+            </div>
+            <ul class="menu-list">
+              <li class="menu-item"><span class="name">Piadina Crudo</span><span class="dots"></span><span class="price">7,50&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Piadina Cotto</span><span class="dots"></span><span class="price">7,50&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Piadina Vegy</span><span class="dots"></span><span class="price">7,50&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Piadina Diabolo</span><span class="dots"></span><span class="price">7,50&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Piadina Tuna</span><span class="dots"></span><span class="price">7,50&nbsp;€</span></li>
+            </ul>
+          </article>
+
+          <article class="menu-card reveal reveal-delay-1">
+            <div class="menu-card-head">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#fries-icon"/></svg>
+              </div>
+              <div>
+                <h3>Fries</h3>
+                <p class="sub">Goldgelb &amp; knusprig</p>
+              </div>
+            </div>
+            <ul class="menu-list">
+              <li class="menu-item"><span class="name">Long Fries <span class="note">Normal</span></span><span class="dots"></span><span class="price">5,90&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Long Fries <span class="note">XL</span></span><span class="dots"></span><span class="price">7,90&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Short Fries <span class="note">Normal</span></span><span class="dots"></span><span class="price">5,90&nbsp;€</span></li>
+            </ul>
+          </article>
+
+          <article class="menu-card reveal">
+            <div class="menu-card-head">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ramune-icon"/></svg>
+              </div>
+              <div>
+                <h3>Softdrinks</h3>
+                <p class="sub">Klassiker &amp; japanische Limonade</p>
+              </div>
+            </div>
+            <ul class="menu-list">
+              <li class="menu-item"><span class="name">Coca-Cola</span><span class="dots"></span><span class="price">2,90&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Fuze Tea</span><span class="dots"></span><span class="price">2,90&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Fanta</span><span class="dots"></span><span class="price">2,90&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Apfelsaft</span><span class="dots"></span><span class="price">3,30&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Ramune <span class="note">Melone</span></span><span class="dots"></span><span class="price">3,90&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Ramune <span class="note">Pfirsich</span></span><span class="dots"></span><span class="price">3,90&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Ramune <span class="note">Kiwi</span></span><span class="dots"></span><span class="price">3,90&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Yuzu Limonade</span><span class="dots"></span><span class="price">3,90&nbsp;€</span></li>
+            </ul>
+          </article>
+
+          <article class="menu-card reveal reveal-delay-1">
+            <div class="menu-card-head">
+              <div class="icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#cup-icon"/></svg>
+              </div>
+              <div>
+                <h3>Energy, Kaffee &amp; Tee</h3>
+                <p class="sub">Für den Extra-Schwung – auch to go</p>
+              </div>
+            </div>
+            <ul class="menu-list">
+              <li class="menu-item"><span class="name">Monster Energy</span><span class="dots"></span><span class="price">3,30&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Red Bull</span><span class="dots"></span><span class="price">3,50&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Espresso</span><span class="dots"></span><span class="price">2,50&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Espresso Doppio</span><span class="dots"></span><span class="price">3,00&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Cappuccino</span><span class="dots"></span><span class="price">3,20&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Caffè Latte</span><span class="dots"></span><span class="price">3,50&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Verlängerter</span><span class="dots"></span><span class="price">3,50&nbsp;€</span></li>
+              <li class="menu-item"><span class="name">Tee <span class="note">verschiedene Sorten</span></span><span class="dots"></span><span class="price">2,90&nbsp;€</span></li>
+            </ul>
+          </article>
+
+        </div>
+        <p class="menu-note reveal">Alle Preise inkl. MwSt. · Allergene &amp; Zusatzstoffe erfährst du gerne bei uns vor Ort.</p>
+      </div>
+    </section>
+
+    <!-- ===== Über uns ===== -->
+    <section id="ueber-uns" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-art reveal" aria-hidden="true">
+          <div class="about-blob">
+            <svg viewBox="0 0 200 190"><use href="#tanuki"/></svg>
+          </div>
+        </div>
+        <div class="about-copy reveal reveal-delay-1">
+          <h2 id="about-title">Der Tanuki bringt Glück – wir bringen das Essen</h2>
+          <p>
+            In Japan gilt der Tanuki als verspielter Glücksbringer, der gute Laune und
+            Wohlstand ins Haus bringt. Genau dieses Gefühl wollten wir nach Klagenfurt
+            holen: ein Ort, an dem es nach frischer Piadina duftet, die Long Fries
+            golden knuspern und die Ramune-Kugel fröhlich klickert.
+          </p>
+          <p>
+            TanukiFry verbindet italienische Streetfood-Klassiker mit japanischen
+            Lieblingsgetränken – einfach, ehrlich und immer frisch zubereitet.
+          </p>
+          <p class="about-quote">„Kleine Portion Glück, bitte einmal zum Mitnehmen!"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Location ===== -->
+    <section class="location" id="location" aria-labelledby="location-title">
+      <div class="container">
+        <div class="location-grid">
+          <div class="reveal">
+            <h2 id="location-title">Wo findest du uns?</h2>
+            <ul class="addr-list">
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#pin-icon"/></svg>TanukiFry Klagenfurt</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#pin-icon"/></svg>Bahnhofstraße 42</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#pin-icon"/></svg>9020 Klagenfurt am Wörthersee</li>
+            </ul>
+            <a class="btn btn-outline-light" href="https://www.google.com/maps/search/?api=1&amp;query=Bahnhofstra%C3%9Fe+42%2C+9020+Klagenfurt+am+W%C3%B6rthersee" target="_blank" rel="noopener">
+              Auf Google Maps ansehen
+            </a>
+            <div class="hours">
+              <h3>Öffnungszeiten</h3>
+              <table>
+                <tr><td>Montag – Freitag</td><td>09:00 – 20:00 Uhr</td></tr>
+                <tr><td>Samstag</td><td>10:00 – 20:00 Uhr</td></tr>
+                <tr><td>Sonntag</td><td>11:00 – 18:00 Uhr</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="reveal reveal-delay-1">
+            <iframe class="map-frame" loading="lazy"
+              title="Karte: TanukiFry, Bahnhofstraße 42, 9020 Klagenfurt am Wörthersee"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=Bahnhofstra%C3%9Fe%2042%2C%209020%20Klagenfurt%20am%20W%C3%B6rthersee&amp;z=15&amp;output=embed"></iframe>
+          </div>
+        </div>
+      </div>
+      <svg class="peek" viewBox="0 0 200 190" aria-hidden="true"><use href="#tanuki"/></svg>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><use href="#badge"/></svg>
+        <span class="word">TanukiFry
+          <span class="copy">© 2026 TanukiFry Klagenfurt · <span lang="ja">タヌキフライ</span></span>
+        </span>
+      </div>
+      <div class="footer-social">
+        <span class="label">Folge uns</span>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="TanukiFry auf Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="stroke: var(--cream); fill: none;" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" style="fill: var(--cream);"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="TanukiFry auf Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+      navToggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    });
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Scroll reveal (disabled entirely under reduced motion via CSS)
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
